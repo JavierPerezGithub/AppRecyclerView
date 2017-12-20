@@ -1,5 +1,6 @@
 package com.javi.apprecyclerview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,7 +34,17 @@ public class MainActivity extends AppCompatActivity {
                 String msg = "Seleccionada la opción " + rv.indexOfChild(v)
                         +" con el valor "
                         +((MiAdaptador.MiViewHolder)rv.getChildViewHolder(v)).getTextoSup().getText();
+
                 Toast.makeText(MainActivity.this,msg,Toast.LENGTH_SHORT).show();
+
+                ItemLista il = datos.getLista().get(rv.indexOfChild(v));
+
+                MiAdaptador.MiViewHolder vh = (MiAdaptador.MiViewHolder) rv.getChildViewHolder(v);
+
+                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                intent.putExtra("ITEM",il);
+                startActivity(intent);
+
             }
         });
         rv.setAdapter(ma);

@@ -53,8 +53,16 @@ public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiViewHolder> 
         private TextView textoSup;
         private TextView textoInf;
 
+        public ImageView getImagen() {
+            return imagen;
+        }
+
         public TextView getTextoSup() {
             return textoSup;
+        }
+
+        public TextView getTextoInf() {
+            return textoInf;
         }
 
         public MiViewHolder(View view) {
@@ -62,6 +70,8 @@ public class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MiViewHolder> 
             imagen = (ImageView) view.findViewById(R.id.imageView);
             textoSup = (TextView) view.findViewById(R.id.tvSuperior);
             textoInf = (TextView) view.findViewById(R.id.tvInferior);
+
+
         }
 
         public void bindListaItem(ItemLista li) {
